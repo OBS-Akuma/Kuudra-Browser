@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Welcome to Kuudra</title>
   <style>
-    body {
+    html, body {
+      margin: 0; padding: 0;
+      height: 100vh; width: 100vw;
+      overflow: hidden;
       background: #0f0f0f;
       color: white;
       font-family: "Segoe UI", sans-serif;
@@ -12,62 +15,57 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
       text-align: center;
     }
 
+    img.logo {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 24px;
+      user-select: none;
+    }
+
     h1 {
-      margin: 20px 0 10px;
+      font-size: 36px;
+      margin: 0 0 16px 0;
+      user-select: none;
     }
 
-    img {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 20px;
-    }
-
-    .browser-info {
+    p.subtitle {
+      font-size: 18px;
       color: #ccc;
-      font-size: 14px;
-      margin-bottom: 20px;
+      margin: 0 0 32px 0;
+      user-select: none;
     }
 
     button {
       background: #4a90e2;
       color: white;
       border: none;
-      padding: 12px 24px;
-      margin: 8px;
+      padding: 14px 28px;
+      margin: 6px;
       border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
+      transition: background 0.2s ease;
+      user-select: none;
     }
 
     button:hover {
       background: #357ab8;
     }
-
-    .footer-note {
-      position: absolute;
-      bottom: 16px;
-      font-size: 12px;
-      color: #555;
-    }
   </style>
 </head>
 <body>
-  <img src="./assets/logo.png" alt="Kuudra Logo" />
+  <img class="logo" src="./assets/logo.png" alt="Kuudra Logo" />
   <h1>Welcome to Kuudra Browser</h1>
-  <div class="browser-info">
-    Choose your default search engine:
+  <p class="subtitle">Choose your default search engine to get started</p>
+
+  <div>
+    <button onclick="selectEngine('google')">Use Google</button>
+    <button onclick="selectEngine('duckduckgo')">Use DuckDuckGo</button>
+    <button onclick="selectEngine('yahoo')">Use Yahoo</button>
   </div>
-
-  <button onclick="selectEngine('google')">Use Google</button>
-  <button onclick="selectEngine('duckduckgo')">Use DuckDuckGo</button>
-  <button onclick="selectEngine('yahoo')">Use Yahoo</button>
-
-  <div class="footer-note">This choice will be used for your search bar.</div>
 
   <script src="engine.js"></script>
 </body>
