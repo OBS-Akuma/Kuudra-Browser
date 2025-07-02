@@ -1,12 +1,27 @@
 {
   "name": "kuudra-browser",
-  "version": "1.0.0",
-  "description": "Kuudra Browser",
+  "version": "2.0.0",
+  "description": "Electron client for Google, yahoo, Duckduckgo",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OBS-Akuma/Kuudra-Browser.git"
+  },
+  "keywords": [],
+  "author": "Akuma",
+  "license": "ISC",
   "devDependencies": {
-    "electron": "^29.0.0"
+    "electron": "^36.4.0",
+    "electron-builder": "^23.0.2"
+  },
+  "dependencies": {
+    "v8-compile-cache": "^2.4.0"
+  },
+  "optionalDependencies": {
+    "dmg-license": "^1.0.11"
   }
 }
