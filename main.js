@@ -12,6 +12,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: false,
       nodeIntegration: true,
+      enableRemoteModule: true,   // Required for hotkeys.js devtools
       webviewTag: true
     },
     icon: path.join(__dirname, 'assets/logo.png'),
@@ -20,12 +21,12 @@ function createWindow() {
 
   mainWindow.loadFile('start.html');
 
-  // Optional: Open DevTools (for debugging)
+  // Uncomment if you want DevTools open on launch for debugging:
   // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
-  setupAdblocker();     // Enable adblocker before window is created
+  setupAdblocker();
   createWindow();
 });
 
@@ -34,7 +35,5 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
