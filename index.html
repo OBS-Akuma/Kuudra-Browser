@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kuudra Browser</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #121212;
+      color: white;
+    }
+
+    #nav {
+      display: flex;
+      padding: 10px;
+      background: #1f1f1f;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      font-size: 16px;
+      margin-left: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin-left: 10px;
+      background: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    webview {
+      width: 100%;
+      height: calc(100vh - 50px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="nav">
+    <span><strong>Kuudra:</strong></span>
+    <input type="text" id="url" placeholder="Enter website or search...">
+    <button onclick="go()">Go</button>
+  </div>
+
+  <webview id="webview" allowpopups></webview>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
