@@ -1,5 +1,8 @@
+const webview = document.getElementById('webview');
+const urlInput = document.getElementById('url');
+
 function go() {
-  const input = document.getElementById('url').value.trim();
+  const input = urlInput.value.trim();
   let url = input;
 
   if (!input) return;
@@ -12,11 +15,36 @@ function go() {
   };
 
   if (!input.includes('.') || input.includes(' ')) {
-    const query = encodeURIComponent(input);
-    url = engines[engine] + query;
+    url = engines[engine] + encodeURIComponent(input);
   } else if (!input.startsWith('http')) {
-    url = `https://${input}`;
+    url = 'https://' + input;
   }
 
-  document.getElementById('webview').src = url;
+  webview.src = url;
+}
+
+// 🔄 Sync URL bar with webview URL
+webview.addEventListener('did-navigate', () => {
+  urlInput.value = webview.getURL();
+});
+
+// ◀ Back
+function goBack() {
+  if (webview.canGoBack()) webview.goBack();
+}
+
+// ▶ Forward
+function goForward() {
+  if (webview.canGoForward()) webview.goForward();
+}
+
+// 🔁 Reload
+function reload() {
+  webview.reload();
+}
+
+// 🏠 Home
+function goHome() {
+  webview.src = 'https://start.duckduckgo.com/';
+  urlInput.value = '';
 }
