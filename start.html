@@ -38,6 +38,7 @@
       color: white;
       border: none;
       padding: 12px 24px;
+      margin: 8px;
       border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
@@ -59,15 +60,15 @@
   <img src="./assets/logo.png" alt="Kuudra Logo" />
   <h1>Welcome to Kuudra Browser</h1>
   <div class="browser-info">
-    You're running: <span id="browserInfo"></span>
+    Choose your default search engine:
   </div>
-  <button onclick="selectEngine('google')">Start with Google</button>
 
-  <div class="footer-note">You can change your engine later in settings.</div>
+  <button onclick="selectEngine('google')">Use Google</button>
+  <button onclick="selectEngine('duckduckgo')">Use DuckDuckGo</button>
+  <button onclick="selectEngine('yahoo')">Use Yahoo</button>
+
+  <div class="footer-note">This choice will be used for your search bar.</div>
 
   <script src="engine.js"></script>
-  <script>
-    document.getElementById("browserInfo").textContent = navigator.userAgent;
-  </script>
 </body>
 </html>
