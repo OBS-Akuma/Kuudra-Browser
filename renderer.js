@@ -1,6 +1,8 @@
 const webview = document.getElementById('webview');
 const urlInput = document.getElementById('url');
 
+const { registerHotkeys } = require('./hotkeys');
+
 function go() {
   const input = urlInput.value.trim();
   let url = input;
@@ -23,28 +25,26 @@ function go() {
   webview.src = url;
 }
 
-// 🔄 Sync URL bar with webview URL
+// Sync address bar when navigating
 webview.addEventListener('did-navigate', () => {
   urlInput.value = webview.getURL();
 });
 
-// ◀ Back
 function goBack() {
   if (webview.canGoBack()) webview.goBack();
 }
 
-// ▶ Forward
 function goForward() {
   if (webview.canGoForward()) webview.goForward();
 }
 
-// 🔁 Reload
 function reload() {
   webview.reload();
 }
 
-// 🏠 Home
 function goHome() {
-  webview.src = 'https://start.duckduckgo.com/';
-  urlInput.value = '';
+  window.location.href = 'start.html';
 }
+
+// Register hotkeys with webview
+registerHotkeys(webview);
