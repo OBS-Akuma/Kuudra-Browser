@@ -2,40 +2,72 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Choose Search Engine</title>
+  <title>Welcome to Kuudra</title>
   <style>
     body {
-      background: #121212;
+      background: #0f0f0f;
       color: white;
-      font-family: sans-serif;
+      font-family: "Segoe UI", sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
+      text-align: center;
     }
+
     h1 {
+      margin: 20px 0 10px;
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
       margin-bottom: 20px;
     }
+
+    .browser-info {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
     button {
-      background: #0078d4;
-      border: none;
+      background: #4a90e2;
       color: white;
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 16px;
+      border: none;
+      padding: 12px 24px;
       border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
+    }
+
+    button:hover {
+      background: #357ab8;
+    }
+
+    .footer-note {
+      position: absolute;
+      bottom: 16px;
+      font-size: 12px;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>Choose your search engine</h1>
-  <button onclick="selectEngine('google')">Google</button>
-  <button onclick="selectEngine('duckduckgo')">DuckDuckGo</button>
-  <button onclick="selectEngine('yahoo')">Yahoo</button>
+  <img src="./assets/logo.png" alt="Kuudra Logo" />
+  <h1>Welcome to Kuudra Browser</h1>
+  <div class="browser-info">
+    You're running: <span id="browserInfo"></span>
+  </div>
+  <button onclick="selectEngine('google')">Start with Google</button>
+
+  <div class="footer-note">You can change your engine later in settings.</div>
 
   <script src="engine.js"></script>
+  <script>
+    document.getElementById("browserInfo").textContent = navigator.userAgent;
+  </script>
 </body>
 </html>
